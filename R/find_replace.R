@@ -78,6 +78,7 @@ find_replace <- function(.DF, .index=NULL, .replace=NULL, .lookup=NULL, .name_ve
     } else {
       .idx <- stringr::str_detect(.DF[,.lookup], names(.name_vec)[i])
     }
+    .idx[is.na(.idx)] <- FALSE
 
     .DF[.index & .idx, .replace] <- rename(i, .idx)
   }

@@ -4,15 +4,19 @@
 \alias{clean_date}
 \title{Cleans different formats of date strings}
 \usage{
-clean_date(date_vec)
+clean_date(date_vec, unresolved = FALSE)
 }
 \arguments{
 \item{date_vec:}{A vector of strings}
+
+\item{unresolved:}{TRUE returns a list including a vector of unresolved values.}
 }
 \value{
-A list containing two elements: $Date is a vector of strings with
-the cleaned or otherwise untouched input data and $unresolved is a logical
-vector with FALSE if a value was changed and TRUE otherwise.
+If unresolved is set to true returns a list containing two
+elements: $Date is a vector of strings with the cleaned or otherwise
+untouched input data and $unresolved is a logical vector with FALSE if a
+value was changed and TRUE otherwise. If unresolved is false, only the date
+vector will be returned.
 }
 \description{
 Cleans different formats of date strings and converts them to a uniform
@@ -26,13 +30,13 @@ not follow the formatting convention of as.Date.
 }
 
 \examples{
-clean_date("24.12.2000")$Date
+clean_date("24.12.2000")
 
-clean_date("24/12/00")$Date
+clean_date("24/12/00")
 
-clean_date("12/24/00")$Date
+clean_date("12/24/00")
 
-clean_date("12 /2 /2016")$Date
+clean_date("12 /2 /2016")
 
-clean_date("12 /2 /2016")$unresolved
+clean_date("12 /2 /2016", unresolved=TRUE)$unresolved
 }

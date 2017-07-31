@@ -12,7 +12,7 @@ find_replace(.DF, .index = NULL, .replace = NULL, .lookup = NULL,
 
 \item{.index:}{An optional index vector of the same length as .DF.}
 
-\item{.replace:}{The variable changes are applied to.}
+\item{.replace:}{A list of variables changes are applied to.}
 
 \item{.lookup:}{An optional variable that can be used as alternative lookup.}
 

@@ -3,7 +3,7 @@ find_replace <- function(.DF, .index=NULL, .replace=NULL, .lookup=NULL, .name_ve
   #'
   #' @param .DF: A dataframe.
   #' @param .index: An optional index vector of the same length as .DF.
-  #' @param .replace: The variable changes are applied to.
+  #' @param .replace: A list of variables changes are applied to.
   #' @param .lookup: An optional variable that can be used as alternative lookup.
   #' @param .name_vec: A vector that serves as a lookup map. This vector is of the form regexp = "replacement".
   #' @param .all_variables: logic, if true, then all varibles will be selected. otherwise, only .replace will be selected

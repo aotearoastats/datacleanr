@@ -2,55 +2,16 @@
 % Please edit documentation in R/find_replace.R
 \name{find_replace}
 \alias{find_replace}
-\title{Renames the values on a variable according to a pattern-value map}
+\title{Renames the values on an input according to a pattern-value map}
 \usage{
-find_replace(.DF, .index = NULL, .replace = NULL, .lookup = NULL,
-  .name_vec, .all_variables = FALSE)
+find_replace(...)
 }
 \arguments{
-\item{.DF:}{A dataframe.}
-
-\item{.index:}{An optional index vector of the same length as .DF.}
-
-\item{.replace:}{A list of variables changes are applied to.}
-
-\item{.lookup:}{An optional variable that can be used as alternative lookup.}
-
-\item{.name_vec:}{A vector that serves as a lookup map. This vector is of the form regexp = "replacement".}
-
-\item{.all_variables:}{logic, if true, then all varibles will be selected. otherwise, only .replace will be selected}
+\item{...}{arguments passed to other methods}
 }
 \description{
-Renames the values on a variable according to a pattern-value map
+Renames the values on an input according to a pattern-value map
 }
-\examples{
-
-model <- rownames(mtcars)
-new= rep("Merc 1", dim(mtcars)[1])
-mcars <- cbind(mtcars,
-              model,
-              new,
-              stringsAsFactors=FALSE)
-
-make <- c("(?i)^merc"="BMW")
-
-
-find_replace(mcars,
-             .replace="model",
-             .name_vec=make)
-
-find_replace(mcars,
-            .replace=c("mpg" ,"model", "new"),
-            .name_vec=make,
-            .all_variables=FALSE)
-
-find_replace(mcars,
-            .name_vec=make,
-            .all_variables = TRUE)
-
-index <- with(mcars, model=="Fiat 128")
-find_replace(mcars,
-            .name_vec=make,
-            .all_variables=TRUE,
-            .index=index)
+\seealso{
+\code{\link{find_replace.data.frame}}
 }

@@ -2,14 +2,14 @@
 % Please edit documentation in R/clean_date.R
 \name{clean_date}
 \alias{clean_date}
-\title{Cleans different formats of date strings}
+\title{Cleans different formats of unclean date strings}
 \usage{
 clean_date(date_vec, unresolved = FALSE)
 }
 \arguments{
-\item{date_vec:}{A vector of strings}
+\item{date_vec}{A vector of strings}
 
-\item{unresolved:}{TRUE returns a list including a vector of unresolved values.}
+\item{unresolved}{TRUE returns a list including a vector of unresolved values.}
 }
 \value{
 If unresolved is set to true returns a list containing two
@@ -19,10 +19,10 @@ value was changed and TRUE otherwise. If unresolved is false, only the date
 vector will be returned.
 }
 \description{
-Cleans different formats of date strings and converts them to a uniform
-date format "\%Y-\%m-\%d" as returned by as.Date(). Year must be in last
-position. If it encounters a swap in month and day position it swaps
-them around.
+Cleans different formats of date strings and converts them to a
+  uniform date format "\%Y-\%m-\%d" as returned by as.Date(). Year must be in
+  last position. If it encounters a swap in month and day position it swaps
+  them around.
 }
 \section{Warning}{
  Produces NA if year is in first position and date does

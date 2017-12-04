@@ -1,5 +1,6 @@
 #' @title Renames the values on an input according to a pattern-value map
 #'
+#' @description Renames the values on an input according to a pattern-value map
 #' @param ... arguments passed to other methods
 #' @seealso \code{\link{find_replace.data.frame}}
 #' @export
@@ -11,20 +12,27 @@ find_replace <- function(...){
 #' @title Renames the values on an input according to a pattern-value map
 #'
 #' @description Fallback method
+#' @param x Argument of a type for which no find_replace method exists yet.
+#' @param ... arguments passed on to other methods
 #' @export
-find_replace.default <- function(d){
-  print("No method found. Consult ?find_replace for type-specific methods.")
+find_replace.default <- function(x, ...){
+  print("No method found. Consult methods(find_replace) or ?find_replace for more information.")
 }
 
 
 #' @title Renames the values on a data.frame according to a pattern-value map
 #'
-#' @param .DF: A dataframe.
-#' @param .index: An optional index vector of the same length as .DF.
-#' @param .replace: A list of variables changes are applied to.
-#' @param .lookup: An optional variable that can be used as alternative lookup.
-#' @param .name_vec: A vector that serves as a lookup map. This vector is of the form regexp = "replacement".
-#' @param .all_variables: logic, if true, then all varibles will be selected. otherwise, only .replace will be selected
+#' @description Renames the values on a data.frame according to a pattern-value
+#'   map. An index can be supplied to only operate on a selection of rows. An
+#'   alternative loopup can be used which allows conditional replacement (e. g.,
+#'   to only change Mazda's in the mtcars dataset).
+#' @param .DF A dataframe.
+#' @param .index An optional index vector of the same length as .DF.
+#' @param .replace A list of variables changes are applied to.
+#' @param .lookup An optional variable that can be used as alternative lookup.
+#' @param .name_vec A vector that serves as a lookup map. This vector is of the form regexp = "replacement".
+#' @param .all_variables logic, if true, then all varibles will be selected. otherwise, only .replace will be selected
+#' @param ... arguments passed on to other methods
 #' @examples
 #'
 #' model <- rownames(mtcars)
@@ -56,7 +64,7 @@ find_replace.default <- function(d){
 #'             .all_variables=TRUE,
 #'             .index=index)
 #' @export
-find_replace.data.frame <- function(.DF, .index=NULL, .replace=NULL, .lookup=NULL, .name_vec, .all_variables=FALSE) {
+find_replace.data.frame <- function(.DF, .index=NULL, .replace=NULL, .lookup=NULL, .name_vec, .all_variables=FALSE, ...) {
   if(.all_variables) {
     .replace = names(.DF)
   }

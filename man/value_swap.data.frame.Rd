@@ -4,16 +4,18 @@
 \alias{value_swap.data.frame}
 \title{Swaps values on two variables on a dataframe.}
 \usage{
-\method{value_swap}{data.frame}(.DF, .svp, .swp, .idx = NULL)
+\method{value_swap}{data.frame}(x, .svp, .swp, .idx = NULL, ...)
 }
 \arguments{
-\item{.DF:}{A dataframe.}
+\item{x}{A dataframe.}
 
-\item{.svp:}{The name of the first variable involved in the value swap.}
+\item{.svp}{The name of the first variable involved in the value swap.}
 
-\item{.swp:}{The name of the second variable involved in the value swap.}
+\item{.swp}{The name of the second variable involved in the value swap.}
 
-\item{.idx:}{An optional row index. If ommitted all values are swapped between variables.}
+\item{.idx}{An optional row index. If ommitted all values are swapped between variables.}
+
+\item{...}{Arguments passed on to other methods.}
 }
 \description{
 Swaps values of two variables on a dataframe. Takes an optional index.
